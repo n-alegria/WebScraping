@@ -1,0 +1,8 @@
+{
+	"clase30" : {
+			"https://www.w3schools.com/python/python_pip.asp",
+			"https://lxml.de/lxmlhtml.html",
+			"https://docs.python-requests.org/en/master/"
+	}
+
+}
