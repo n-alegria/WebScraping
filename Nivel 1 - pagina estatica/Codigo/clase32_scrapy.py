@@ -9,6 +9,7 @@ from scrapy.loader import ItemLoader
 # la clase debe heredar de 'Item'
 class Pregunta(Item):
     # ahora defino las propiedades que voy a extraer
+    id = Field()
     pregunta = Field()
     descripcion = Field()
 
@@ -29,7 +30,12 @@ class StackOverflowSpider(Spider):
     def parse(self, response):
         sel = Selector(response)
         preguntas = sel.xpath('//div[@id="questions"]//div[@class="question-summary"]')
+        i = 0
         for pregunta in preguntas:
             item = ItemLoader(Pregunta(), pregunta)
             item.add_xpath('pregunta', './/h3/a/text()')
-            item.add_xpath('descripcion', './/div[@class="excerpt"]')
+            item.add_xpath('descripcion', './/div[@class="excerpt"]/text()')
+            item.add_value('id', i)
+            i += 1
+            
+            yield item.load_item()

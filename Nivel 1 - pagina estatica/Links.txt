@@ -5,5 +5,9 @@
 			"https://docs.python-requests.org/en/master/"
 	],
 	"clase31" : "https://www.crummy.com/software/BeautifulSoup/bs4/doc/",
-	"clase32" : "https://docs.scrapy.org/en/0.14/intro/overview.html"
+	"clase32" : "https://docs.scrapy.org/en/0.14/intro/overview.html",
+	"clase37" : [
+			"https://www.youtube.com/watch?v=6Vr9ZUntCyE",
+			"https://docs.scrapy.org/en/latest/topics/practices.html#run-scrapy-from-a-script"
+	]
 }
