@@ -1,0 +1,3 @@
+{
+	"clase38" : "https://docs.scrapy.org/en/0.14/topics/spiders.html?highlight=crawlspider#crawlspider"
+}
