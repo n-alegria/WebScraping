@@ -69,16 +69,12 @@ class TripAdvisor(CrawlSpider):
 
         item.add_xpath('nombre', '//h1[@id="HEADING"]/text()')
         item.add_xpath('score', '//div[@class="kVNDLtqL"]/span/text()')
-        item.add_xpath('descripcion', '//div[contains(@class, "_2-hMril5")]/div[@class="cPQsENeY"]/div/p/text()')
         item.add_xpath('amenities', '//div[@class="_1nAmDotd"][1]/div[@class="_2rdvbNSg"]/text()')
 
+        auxiliar = response.xpath('//div[contains(@class, "_2-hMril5")]/div[@class="cPQsENeY"]/div/p/text()').get()
+        if auxiliar:
+            item.add_value('descripcion', auxiliar)
+        else:
+            item.add_xpath('descripcion', '//div[contains(@class, "_2-hMril5")]/div[@class="cPQsENeY"]/text()')
+
         yield item.load_item()
-
-
-process = CrawlerProcess({
-    'FEED-FORMAT': 'json',
-    'FEED-URI': 'resultado39.json'
-})
-process.crawl(TripAdvisor)
-process.start()
-
